@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevRos - Back-end Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Ribeye&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #262626;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid #3f3f3f;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-circle {
+            width: 56px;
+            height: 56px;
+            background-color: #0284c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+        }
+        
+        .logo-text span:first-child {
+            font-weight: 700;
+        }
+        
+        .logo-text span:last-child {
+            font-weight: 400;
+        }
+        
+        .logo-circle .r {
+            font-family: 'Ribeye', cursive;
+            font-size: 32px;
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: white;
+        }
+        
+        nav a.active {
+            font-weight: 700;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #262626;
+            padding: 60px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 60px 0;
+        }
+        
+        /* Skills Section */
+        .skills-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .title-underline {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .underline-short {
+            width: 40px;
+            height: 2px;
+            background-color: #0284c7;
+            margin-right: 10px;
+        }
+        
+        .underline-long {
+            width: 128px;
+            height: 2px;
+            background-color: #525252;
+        }
+        
+        .skill-item {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        
+        .skill-icon {
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+        
+        .skill-icon img {
+            width: 62px;
+            height: 59px;
+        }
+        
+        .skill-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .skill-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        /* Progress Section */
+        .progress-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .progress-item {
+            margin-bottom: 40px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .progress-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .progress-percentage {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        .progress-bar {
+            height: 14px;
+            background-color: #525252;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-track {
+            height: 10px;
+            background-color: #262626;
+            border-radius: 8px;
+            margin: 2px;
+        }
+        
+        .progress-fill {
+            height: 6px;
+            background-color: #0284c7;
+            border-radius: 8px;
+            position: absolute;
+            top: 4px;
+            left: 2px;
+            width: 10%;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: auto;
+            border-top: 1px solid #3f3f3f;
+            padding: 20px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .social-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .social-links {
+                order: 2;
+            }
+            
+            .copyright {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-circle">
+                        <div class="r">R</div>
+                    </div>
+                    <div class="logo-text">
+                        <span>Dev</span><span>Ros</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Domů</a></li>
+                        <li><a href="#">Back-end skills</a></li>
+                        <li><a href="#">Front-end skills</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Spolupráce</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Back-end skills</h1>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="skills-section">
+                <h2>Co dělám ?</h2>
+                <div class="title-underline">
+                    <div class="underline-short"></div>
+                    <div class="underline-long"></div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <img src="https://placehold.co/62x59" alt="PHP Icon">
+                    </div>
+                    <div class="skill-content">
+                        <h3>PHP</h3>
+                        <p>Je obecně známou věcí, že člověk bývá při zkoumání grafického návrhu rozptylován okolním textem, pokud mu dává nějaký smysl. Úkolem Lorem Ipsum je pak nahradit klasický smysluplný text vhodnou bezvýznamovou alternativou.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <img src="https://placehold.co/56x53" alt="Database Icon">
+                    </div>
+                    <div class="skill-content">
+                        <h3>Database</h3>
+                        <p>Je obecně známou věcí, že člověk bývá při zkoumání grafického návrhu rozptylován okolním textem, pokud mu dává nějaký smysl. Úkolem Lorem Ipsum je pak nahradit klasický smysluplný text vhodnou bezvýznamovou alternativou.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="progress-section">
+                <h2>Coding Skills</h2>
+                <div class="title-underline">
+                    <div class="underline-short"></div>
+                    <div class="underline-long"></div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <h3>PHP</h3>
+                        <span class="progress-percentage">10%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-track"></div>
+                        <div class="progress-fill" style="width: 10%"></div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <h3>MySQL</h3>
+                        <span class="progress-percentage">10%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-track"></div>
+                        <div class="progress-fill" style="width: 10%"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Youtube</a>
+                </div>
+                <div class="copyright">© 2022 Všechna práva vyhrazena.</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
