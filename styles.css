@@ -1,0 +1,43 @@
+/* Extracted styles from the Figma export, made responsive and semantic */
+:root{
+  --bg:#222;
+  --muted:rgba(255,255,255,0.5);
+  --panel:#333;
+  --accent:#007CED;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:var(--bg);color:#fff}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:20px 60px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-badge{width:55px;height:55px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:"Ribeye", serif;font-size:35px}
+.brand-text{font-size:30px}
+.brand-strong{font-weight:700}
+.brand-light{font-weight:400}
+.main-nav{display:flex;gap:24px}
+.main-nav .nav-link{color:var(--muted);text-decoration:none;font-size:18px}
+.main-nav .nav-link.active{color:#fff;font-weight:700}
+
+.hero{display:flex;gap:40px;align-items:center;padding:60px;max-width:1200px;margin:40px auto}
+.hero-media{position:relative;width:520px;height:520px;flex:0 0 520px}
+.hero-ring{position:absolute;inset:0;background:#444;border-radius:9999px;box-shadow:0 0 50px rgba(0,0,0,.8)}
+.hero-photo{position:absolute;left:14px;top:14px;width:492px;height:492px;border-radius:9999px;object-fit:cover}
+
+.hero-content{flex:1;min-width:260px}
+.kicker{color:var(--muted);font-size:24px;margin:0 0 12px}
+#hero-title{font-size:70px;margin:0 0 18px}
+.lead{font-size:20px;line-height:1.6;color:#fff;margin:0 0 18px}
+.hero-actions{display:flex;gap:16px}
+.btn{display:inline-block;padding:12px 28px;border-radius:30px;background:var(--panel);color:#fff;text-decoration:none;border:3px solid transparent}
+.btn-primary{border-color:var(--accent)}
+
+.site-footer{border-top:2px solid #333;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+.site-footer a{color:var(--muted);text-decoration:none;margin-right:12px}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{flex-direction:column;align-items:center;padding:20px}
+  .hero-media{width:320px;height:320px}
+  .hero-photo{left:7px;top:7px;width:306px;height:306px}
+  #hero-title{font-size:48px;text-align:center}
+  .kicker,.lead{text-align:center}
+}
